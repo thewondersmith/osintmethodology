@@ -1,0 +1,2 @@
+# osintmethodology
+Community OSINT Methodology
