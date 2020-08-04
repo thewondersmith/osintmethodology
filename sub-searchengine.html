@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>OSINT Methodology - Search Engine Search</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="https://flowchart.js.org/flowchart-latest.js"></script>
+        <!-- <script src="../release/flowchart.min.js"></script> -->
+        <script>
+
+            window.onload = function () {
+                var btn = document.getElementById("run"),
+                    cd = document.getElementById("code"),
+                    chart;
+
+                (btn.onclick = function () {
+                    var code = `
+                      st=>start: Search Engine Search Start
+                      e=>end:>https://webbreacher.github.io/flowchart.js/
+
+                      c-variations=>condition: Do you think
+                      user may use
+                      username
+                      variations?
+
+
+                      para-google=>parallel: Perform Google search:>https://google.com[blank]
+                      op-goo-quote=>operation: Put term inside
+                      quotes (")
+                      op-goo-adv=>operation: Use advanced Google
+                      modifiers:>https://www.google.com/advanced_search[blank]
+                      op-yandex=>operation: Perform Yandex search:>https://yandex.com[blank]
+                      op-bing=>operation: Perform Bing search:>https://bing.com[blank]
+                      op-ddg=>operation: Perform DuckDuckGo search:>https://duckduckgo.com[blank]
+
+
+                      st->para-google(path1, right)->op-goo-quote(right)->op-goo-adv
+                      op-goo-adv->
+                      para-google(path2, bottom)op-yandex->op-bing->op-ddg->e
+                    `;
+
+                    if (chart) {
+                      chart.clean();
+                    }
+
+                    chart = flowchart.parse(code);
+                    chart.drawSVG('canvas', {
+                      // 'x': 30,
+                      // 'y': 50,
+                      'line-width': 3,
+                      'maxWidth': 3,//ensures the flowcharts fits within a certain width
+                      'line-length': 60,
+                      'text-margin': 10,
+                      'font-size': 14,
+                      'font': 'normal',
+                      'font-family': 'Helvetica',
+                      'font-weight': 'normal',
+                      'font-color': 'black',
+                      'line-color': 'black',
+                      'element-color': 'black',
+                      'fill': 'white',
+                      'yes-text': 'yes',
+                      'no-text': 'no',
+                      'arrow-end': 'block',
+                      'scale': 1,
+                      'symbols': {
+                        'start': {
+                          'font-color': 'white',
+                          'element-color': 'black',
+                          'fill': 'green',
+                          'font-weight' : 'bold'
+                        },
+                        'end':{
+                          'font-color': 'white',
+                          'element-color': 'black',
+                          'fill': 'red',
+                          'font-weight' : 'bold'
+                        }
+                      },
+                      'flowstate' : {
+                        'blue' : {'fill' : 'blue', 'font-color' : 'white', 'font-weight' : 'bold'},
+                        'purple' : {'fill' : 'purple', 'font-color' : 'white', 'font-weight' : 'bold'}
+                      }
+                    });
+
+                    $('[id^=sub1]').click(function(){
+                      alert('info here');
+                    });
+                })();
+
+            };
+
+            function myFunction(event, node) {
+              console.log("You just clicked this node:", node);
+            }
+
+        </script>
+    </head>
+    <body>
+
+        <div style="display: none;"><button id="run" type="button"></button></div>
+        <div id="canvas"></div>
+    </body>
+</html>

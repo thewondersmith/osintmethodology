@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>OSINT Methodology - Reverse Image Search</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="https://flowchart.js.org/flowchart-latest.js"></script>
+        <!-- <script src="../release/flowchart.min.js"></script> -->
+        <script>
+
+            window.onload = function () {
+                var btn = document.getElementById("run"),
+                    cd = document.getElementById("code"),
+                    chart;
+
+                (btn.onclick = function () {
+                    var code = `
+                    st=>start: Reverse Image Search Start
+                    e=>end:>https://webbreacher.github.io/flowchart.js/
+
+                      c-variations=>condition: Do you think
+                      user may use
+                      username
+                      variations?
+
+
+                      para-google=>parallel: Perform Google image search:>https://image.google.com[blank]
+                      op-goo-refine=>operation: Refine search results by entering keyword and searching again
+                      op-goo-adv=>operation: Use advanced Google
+                      modifiers:>https://www.google.com/advanced_search[blank]
+                      op-yandex=>operation: Perform Yandex image search:>https://yandex.com/images/[blank]
+                      para-bing=>parallel: Perform Bing image search:>https://bing.com/images[blank]
+                      op-bing-visual=>operation: Perform visual search cropping
+
+
+                      st->para-google(path1, right)->op-goo-refine(right)->para-google(bottom)
+                      para-google(path2, bottom)->op-yandex->para-bing(path1, right)->op-bing-visual->e
+                      para-bing(path2, bottom)->e
+                    `;
+
+                    if (chart) {
+                      chart.clean();
+                    }
+
+                    chart = flowchart.parse(code);
+                    chart.drawSVG('canvas', {
+                      // 'x': 30,
+                      // 'y': 50,
+                      'line-width': 3,
+                      'maxWidth': 3,//ensures the flowcharts fits within a certain width
+                      'line-length': 60,
+                      'text-margin': 10,
+                      'font-size': 14,
+                      'font': 'normal',
+                      'font-family': 'Helvetica',
+                      'font-weight': 'normal',
+                      'font-color': 'black',
+                      'line-color': 'black',
+                      'element-color': 'black',
+                      'fill': 'white',
+                      'yes-text': 'yes',
+                      'no-text': 'no',
+                      'arrow-end': 'block',
+                      'scale': 1,
+                      'symbols': {
+                        'start': {
+                          'font-color': 'white',
+                          'element-color': 'black',
+                          'fill': 'green',
+                          'font-weight' : 'bold'
+                        },
+                        'condition': {
+                          'font-color': 'white',
+                          'element-color': 'black',
+                          'fill': 'purple',
+                          'font-weight' : 'bold'
+                        },
+                        'subroutine': {
+                          'font-color': 'white',
+                          'element-color': 'black',
+                          'fill': 'blue',
+                          'font-weight' : 'bold'
+                        },
+                        'end':{
+                          'font-color': 'white',
+                          'element-color': 'black',
+                          'fill': 'red',
+                          'font-weight' : 'bold'
+                        }
+                      },
+                      'flowstate' : {
+                        'blue' : {'fill' : 'blue', 'font-color' : 'white', 'font-weight' : 'bold'},
+                        'purple' : {'fill' : 'purple', 'font-color' : 'white', 'font-weight' : 'bold'}
+                      }
+                    });
+
+                    $('[id^=sub1]').click(function(){
+                      alert('info here');
+                    });
+                })();
+
+            };
+
+            function myFunction(event, node) {
+              console.log("You just clicked this node:", node);
+            }
+
+        </script>
+    </head>
+    <body>
+
+        <div style="display: none;"><button id="run" type="button"></button></div>
+        <div id="canvas"></div>
+    </body>
+</html>

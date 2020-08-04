@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>OSINT Methodology - Username Search</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="https://flowchart.js.org/flowchart-latest.js"></script>
+        <!-- <script src="../release/flowchart.min.js"></script> -->
+        <script>
+
+            window.onload = function () {
+                var btn = document.getElementById("run"),
+                    cd = document.getElementById("code"),
+                    chart;
+
+                (btn.onclick = function () {
+
+                    var code = `
+                      st=>start: Username Search Start
+                      e=>end: End:>https://webbreacher.github.io/flowchart.js/
+
+                      c-variations=>condition: Do you think user may use username variations?|purple
+
+                      s-search1=>subroutine: Perform search
+                      engine searches|blue:>sub-searchengine.html[blank]
+
+
+                      op-wmn=>operation: Search for username
+                      on WhatsMyName:>https://whatsmyname.app[blank]
+                      op-usersearch=>operation: Search for username on usersearch:>https://usersearch.org[blank]
+                      op-sherlock=>operation: Search for username using Sherlock
+                      Python script:>https://github.com/sherlock-project/sherlock[blank]
+
+                      st->op-wmn(right)->op-usersearch(right)->op-sherlock(right)->s-search1->c-variations
+                      c-variations(yes)->op-wmn
+                      c-variations(no, bottom)->e
+                    `;
+
+                    if (chart) {
+                      chart.clean();
+                    }
+
+                    chart = flowchart.parse(code);
+                    chart.drawSVG('canvas', {
+                      // 'x': 30,
+                      // 'y': 50,
+                      'line-width': 3,
+                      'maxWidth': 3,//ensures the flowcharts fits within a certain width
+                      'line-length': 60,
+                      'text-margin': 10,
+                      'font-size': 14,
+                      'font': 'normal',
+                      'font-family': 'Helvetica',
+                      'font-weight': 'normal',
+                      'font-color': 'black',
+                      'line-color': 'black',
+                      'element-color': 'black',
+                      'fill': 'white',
+                      'yes-text': 'yes',
+                      'no-text': 'no',
+                      'arrow-end': 'block',
+                      'scale': 1,
+                      'symbols': {
+                        'start': {
+                          'font-color': 'white',
+                          'element-color': 'black',
+                          'fill': 'green',
+                          'font-weight' : 'bold'
+                        },
+                        'end':{
+                          'font-color': 'white',
+                          'element-color': 'black',
+                          'fill': 'red',
+                          'font-weight' : 'bold'
+                        }
+                      },
+                      'flowstate' : {
+                        'blue' : {'fill' : 'blue', 'font-color' : 'white', 'font-weight' : 'bold'},
+                        'purple' : {'fill' : 'purple', 'font-color' : 'white', 'font-weight' : 'bold'}
+                      }
+                    });
+
+                    $('[id^=sub1]').click(function(){
+                      alert('info here');
+                    });
+                })();
+
+            };
+
+            function myFunction(event, node) {
+              console.log("You just clicked this node:", node);
+            }
+
+        </script>
+    </head>
+    <body>
+
+        <div style="display: none;"><button id="run" type="button"></button></div>
+        <div id="canvas"></div>
+    </body>
+</html>
