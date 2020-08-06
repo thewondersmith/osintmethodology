@@ -17,46 +17,64 @@
 
                 (btn.onclick = function () {
                     var code = `
-                        st=>start: Youtube Start
+                        st=>start: Instagram Start
                         e=>end:>https://webbreacher.github.io/flowchart.js/
 
                         c-userpro1=>condition: Does user
                         have a profile
-                        on Youtube?
+                        on Instagram?
                         c-userpost1=>condition: Has the
                         user posted?
+                        c-usercomm1=>condition: Has the
+                        user commented?
+                        c-variations=>condition: Do you think user
+                        may use username variations?
+                        c-stories=>condition: Has the
+                        user used their stories?
 
                         s-username=>subroutine: Perform username
                         searches on
-                        other platforms:>sub-username.html[blank]
+                        other platforms:>subroutines/sub-username.html[blank]
                         s-revimg=>subroutine: Perform reverse
-                        image searches:>sub-revimg.html[blank]
+                        image searches:>subroutines/sub-revimg.html[blank]
 
-                        para-acc-vid=>parallel: Examine videos
-                        para-pro=>parallel: Examine profile
-                        para-acc-avatar=>parallel: Examine avatar
-                        
-                        op-acc-verified=>operation: Examine if there is a verified badge
+                        para-posts=>parallel: Examine posts
+                        op-comments=>operation: Examine comments
+                        op-pro-tag=>operation: Examine tagged
+                        op-pro-replies=>operation: Examine replies
+                        op-pro-photo=>operations: Examine photos
+                        op-pro-video=>operation: Examine videos
+                        op-pro-text=>operation: Examine text
+                        op-pro-time=>operation: Examine time posted
+                        op-pro-likes=>operation: Examine likes
+                        op-pro-hastags=>operation: Examine hashtags
+                        op-pro-location=>operation: Examine location
+                        op-story-tag=>operation: Examine tagged accounts
+                        op-story-photo=>operation: Examine photos
+                        op-story-text=>operation: Examine text
+                        op-story-video=>operation: Examine videos
+                        op-story-link=>operation: Examine link
+                        op-story-location=>operation: Examine location
+                        op-acc-username=>operation: Examine username
                         op-acc-name=>operation: Examine name
-                        op-acc-art=>operation: Examine channel art
-                        op-acc-subscribers=>operation: Examine subscribers
-                        op-acc-links=>operation: Examine links
+                        op-acc-verified=>operation: Examine if there is a verified badge
+                        op-acc-following=>operation: Examine followers
+                        op-acc-followers=>operation: Examine who they following
+                        op-acc-site=>operation: Examine website
+                        op-acc-bio=>operation: Examine bio
+                        op-acc-data=>operation: Examine 3rd party scraped data
+                        para-pro=>parallel: Examine profile
+                        para-pro-tagged=>parallel: Examine tagged account
+                        para-acc=>parallel: Examine account
+                        para-acc-avatar=>parallel: Examine avatar
+                        para-acc-username=>parallel: Examine username variations
+                        para-acc-name=>parallel: Examine name
+                        para-story=>parallel: Examine stories
 
-                        op-vid-comment=>operation: Examine comments
-                        op-vid-hashtags=>operation: Examine hashtags
-                        op-vid-title=>operation: Examine video title
-                        op-vid-subtitle=>operation: Examine subtitle
-                        op-vid-thumbnails=>operation: Examine thumbnails
-                        op-vid-description=>operation: Examine description
-                        op-vid-views=>operation: Examine views
-                        op-vid-time=>operation: Examine upload time
-                        op-vid-likes/dislikes=>operation: Examine likes/dislikes
-                        op-vid-category=>operation: Examine category
-                        op-vid-location=>operation: Examine location
-                        op-vid-game=>operation: Examine game played
-
-
-                        st->c-userpro1(yes,right)
+                        st->c-userpro1
+                        c-userpro1(yes, right)->para-pro(path1, bottom)->
+                        c-userpost1 (no)->e
+                        c-userpost1 (yes, right)->para-posts(path1, right)
                         c-userpro1(no)->e
                     `;
 
@@ -136,5 +154,3 @@
     </body>
 </html>
 
-
-                    

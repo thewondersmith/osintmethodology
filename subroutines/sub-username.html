@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>OSINT Methodology - Website Investigation</title>
+        <title>OSINT Methodology - Username Search</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script src="https://flowchart.js.org/flowchart-latest.js"></script>
@@ -15,30 +15,26 @@
                     chart;
 
                 (btn.onclick = function () {
+
                     var code = `
-                      st=>start: Website Investigation Start
-                      e=>end:>https://webbreacher.github.io/flowchart.js/
-                      
-                      c-web-onoffsite=>condition: Examine both on and off site content|onoffsite
-                      s-builtwith=>subroutine: Search for site on BuiltWith:>sub-builtwith.html[blank]
-                      s-netcraft=>subroutine: Search for site on Netcraft:>sub-netcraft.html[blank]
-                      op-web-content=>operation: Examine web content
-                      op-web-tech=>operation: Examine the software that runs the site
-                      c-needdownload=>condition: Need a download of the site content?
-                      s-web-download=>subroutine: Download the web content:>sub-download-web.html[blank]
-                      op-web-analytics=>operation: Look for analytics codes
-                      c-analytics=>condition: Did you find analytics codes?
-                      s-web-analytics=>subroutine: Investigate analytics codes:>sub-analytics-web.html[blank]
-                      op-web-sourcecode=>operation: Examine the site's HTML source code
-                      s-search1=>subroutine: Perform search engine searches:>sub-searchengine.html[blank]
-                      
-                      st(right)->c-web-onoffsite(yes, right)->s-search1
-                      s-search1(right)->s-builtwith(right)->s-builtwith(right)->s-netcraft
-                      c-web-onoffsite(no, bottom)->op-web-content->c-analytics
-                      c-analytics(yes)->s-web-analytics
-                      c-analytics(no)->op-web-sourcecode(right)->op-web-tech(right)
-                      op-web-tech(right)->c-needdownload(yes)->s-web-download
-                      c-needdownload(no)->e
+                      st=>start: Username Search Start
+                      e=>end: End:>https://webbreacher.github.io/flowchart.js/
+
+                      c-variations=>condition: Do you think user may use username variations?|purple
+
+                      s-search1=>subroutine: Perform search
+                      engine searches|blue:>subroutines/sub-searchengine.html[blank]
+
+
+                      op-wmn=>operation: Search for username
+                      on WhatsMyName:>https://whatsmyname.app[blank]
+                      op-usersearch=>operation: Search for username on usersearch:>https://usersearch.org[blank]
+                      op-sherlock=>operation: Search for username using Sherlock
+                      Python script:>https://github.com/sherlock-project/sherlock[blank]
+
+                      st->op-wmn(right)->op-usersearch(right)->op-sherlock(right)->s-search1->c-variations
+                      c-variations(yes)->op-wmn
+                      c-variations(no, bottom)->e
                     `;
 
                     if (chart) {
@@ -72,18 +68,6 @@
                           'fill': 'green',
                           'font-weight' : 'bold'
                         },
-                        'condition': {
-                          'font-color': 'white',
-                          'element-color': 'black',
-                          'fill': 'purple',
-                          'font-weight' : 'bold'
-                        },
-                        'subroutine': {
-                          'font-color': 'white',
-                          'element-color': 'black',
-                          'fill': 'blue',
-                          'font-weight' : 'bold'
-                        },
                         'end':{
                           'font-color': 'white',
                           'element-color': 'black',
@@ -93,8 +77,7 @@
                       },
                       'flowstate' : {
                         'blue' : {'fill' : 'blue', 'font-color' : 'white', 'font-weight' : 'bold'},
-                        'purple' : {'fill' : 'purple', 'font-color' : 'white', 'font-weight' : 'bold'},
-                        'onoffsite' : { 'fill' : '#58C4A3', 'font-size' : 12, 'yes-text' : 'Off site', 'no-text' : 'On site' }
+                        'purple' : {'fill' : 'purple', 'font-color' : 'white', 'font-weight' : 'bold'}
                       }
                     });
 

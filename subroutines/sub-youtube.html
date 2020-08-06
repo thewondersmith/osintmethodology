@@ -17,42 +17,47 @@
 
                 (btn.onclick = function () {
                     var code = `
-                        st=>start: Tumblr Start
+                        st=>start: Youtube Start
                         e=>end:>https://webbreacher.github.io/flowchart.js/
 
                         c-userpro1=>condition: Does user
                         have a profile
-                        on Tumblr?
+                        on Youtube?
                         c-userpost1=>condition: Has the
                         user posted?
 
                         s-username=>subroutine: Perform username
                         searches on
-                        other platforms:>sub-username.html[blank]
+                        other platforms:>subroutines/sub-username.html[blank]
                         s-revimg=>subroutine: Perform reverse
-                        image searches:>sub-revimg.html[blank]
+                        image searches:>subroutines/sub-revimg.html[blank]
 
-                        para-acc=>parallel: Examine account
-                        para-peer=>parallel: Examine peer interactions
+                        para-acc-vid=>parallel: Examine videos
+                        para-pro=>parallel: Examine profile
                         para-acc-avatar=>parallel: Examine avatar
 
-                        op-acc-bio=>operation: Examine bio
-                        op-acc-followers=>operation: Examine followers
-                        op-acc-following=>operation: Examine who they follow
-                        op-acc-username=>operation: Examine username
-                        op-acc-likes=>operation: Examine likes
-                        op-post-text=>operation: Exaxmine text
-                        op-post-archive=>operation: Examine archive
-                        op-post-photos/videos=>operation: Examine photos/videos
-                        op-post-tag=>operation: Examine tags
-                        op-peer-likes=>operation: Examine likes
-                        op-peer-comments=>operation: Examine comments
-                        op-peer-reblogs=>operation: Examine reblogs
+                        op-acc-verified=>operation: Examine if there is a verified badge
+                        op-acc-name=>operation: Examine name
+                        op-acc-art=>operation: Examine channel art
+                        op-acc-subscribers=>operation: Examine subscribers
+                        op-acc-links=>operation: Examine links
+
+                        op-vid-comment=>operation: Examine comments
+                        op-vid-hashtags=>operation: Examine hashtags
+                        op-vid-title=>operation: Examine video title
+                        op-vid-subtitle=>operation: Examine subtitle
+                        op-vid-thumbnails=>operation: Examine thumbnails
+                        op-vid-description=>operation: Examine description
+                        op-vid-views=>operation: Examine views
+                        op-vid-time=>operation: Examine upload time
+                        op-vid-likes/dislikes=>operation: Examine likes/dislikes
+                        op-vid-category=>operation: Examine category
+                        op-vid-location=>operation: Examine location
+                        op-vid-game=>operation: Examine game played
 
 
                         st->c-userpro1(yes,right)
                         c-userpro1(no)->e
-
                     `;
 
                     if (chart) {
@@ -130,4 +135,5 @@
         <div id="canvas"></div>
     </body>
 </html>
-           
+
+
