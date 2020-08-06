@@ -21,11 +21,11 @@
 
                       c-website=>condition: Is there a website running on the domain?
                       s-shodan=>subroutine: Perform searches on Shodan:>/subroutines/sub-shodan.html[blank]
-                      s-whois=>subroutine: Perform Whois searches:>../subroutines/sub-whois.html[blank]
-                      s-dns=>subroutine: Perform DNS queries:>subroutines/sub-dns.html[blank]
-                      s-domrep=>subroutine: Examine the reputation of the domain:>sub_domrep.html[blank]
-                      s-website=>subroutine: Examine website:>subroutines/sub-website.html[blank]
-                      op-website=>operation:
+                      s-whois=>subroutine: Perform Whois searches:>/subroutines/sub-whois.html[blank]
+                      s-dns=>subroutine: Perform DNS queries:>/subroutines/sub-dns.html[blank]
+                      s-domrep=>subroutine: Examine the reputation of the domain:>/subrountines/sub_domrep.html[blank]
+                      s-website=>subroutine: Examine website:>/subroutines/sub-website.html[blank]
+
                       st(right)->s-whois(right)->s-dns(right)->s-shodan(right)->s-domrep
                       s-domrep->c-website(yes)->s-website
                       c-website(no)->e

@@ -20,17 +20,17 @@
                       e=>end:>https://method.osintcurio.us/
 
                       c-web-onoffsite=>condition: Examine both on and off site content|onoffsite
-                      s-builtwith=>subroutine: Search for site on BuiltWith:>subroutines/sub-builtwith.html[blank]
-                      s-netcraft=>subroutine: Search for site on Netcraft:>subroutines/sub-netcraft.html[blank]
+                      s-builtwith=>subroutine: Search for site on BuiltWith:>/subroutines/sub-builtwith.html[blank]
+                      s-netcraft=>subroutine: Search for site on Netcraft:>/subroutines/sub-netcraft.html[blank]
                       op-web-content=>operation: Examine web content
                       op-web-tech=>operation: Examine the software that runs the site
                       c-needdownload=>condition: Need a download of the site content?
-                      s-web-download=>subroutine: Download the web content:>subroutines/sub-download-web.html[blank]
+                      s-web-download=>subroutine: Download the web content:>/subroutines/sub-download-web.html[blank]
                       op-web-analytics=>operation: Look for analytics codes
                       c-analytics=>condition: Did you find analytics codes?
-                      s-web-analytics=>subroutine: Investigate analytics codes:>subroutines/sub-analytics-web.html[blank]
+                      s-web-analytics=>subroutine: Investigate analytics codes:>/subroutines/sub-analytics-web.html[blank]
                       op-web-sourcecode=>operation: Examine the site's HTML source code
-                      s-search1=>subroutine: Perform search engine searches:>subroutines/sub-searchengine.html[blank]
+                      s-search1=>subroutine: Perform search engine searches:>/subroutines/sub-searchengine.html[blank]
 
                       st(right)->c-web-onoffsite(yes, right)->s-search1
                       s-search1(right)->s-builtwith(right)->s-builtwith(right)->s-netcraft
