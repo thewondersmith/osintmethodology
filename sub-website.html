@@ -18,7 +18,7 @@
                     var code = `
                       st=>start: Website Investigation Start
                       e=>end:>https://webbreacher.github.io/flowchart.js/
-
+                      
                       c-web-onoffsite=>condition: Examine both on and off site content|onoffsite
                       s-builtwith=>subroutine: Search for site on BuiltWith:>sub-builtwith.html[blank]
                       s-netcraft=>subroutine: Search for site on Netcraft:>sub-netcraft.html[blank]
@@ -30,9 +30,8 @@
                       c-analytics=>condition: Did you find analytics codes?
                       s-web-analytics=>subroutine: Investigate analytics codes:>sub-analytics-web.html[blank]
                       op-web-sourcecode=>operation: Examine the site's HTML source code
-                      s-search1=>subroutine: Perform Search Engine Searches:>sub-searchengine.html[blank]
-
-
+                      s-search1=>subroutine: Perform search engine searches:>sub-searchengine.html[blank]
+                      
                       st(right)->c-web-onoffsite(yes, right)->s-search1
                       s-search1(right)->s-builtwith(right)->s-builtwith(right)->s-netcraft
                       c-web-onoffsite(no, bottom)->op-web-content->c-analytics

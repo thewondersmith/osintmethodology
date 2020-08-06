@@ -104,9 +104,9 @@ header h2 {
 }
 
 .editor {
-    width: 600px;
+    width: 500px;
     height: 700px;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .editor-wrapper {

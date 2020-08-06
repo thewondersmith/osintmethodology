@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -16,19 +17,47 @@
 
                 (btn.onclick = function () {
                     var code = `
-                      st=>start: Domain Search Start
-                      e=>end:>https://webbreacher.github.io/flowchart.js/
-                      
-                      c-website=>condition: Is there a website running on the domain?
-                      s-shodan=>subroutine: Perform searches on Shodan:>sub-shodan.html[blank]
-                      s-whois=>subroutine: Perform Whois searches:>sub-whois.html[blank]
-                      s-dns=>subroutine: Perform DNS queries:>sub-dns.html[blank]
-                      s-domrep=>subroutine: Examine the reputation of the domain:>sub_domrep.html[blank]
-                      s-website=>subroutine: Examine website:>sub-website.html[blank]
-                      op-website=>operation:
-                      st(right)->s-whois(right)->s-dns(right)->s-shodan(right)->s-domrep
-                      s-domrep->c-website(yes)->s-website
-                      c-website(no)->e
+                        st=>start: Youtube Start
+                        e=>end:>https://webbreacher.github.io/flowchart.js/
+
+                        c-userpro1=>condition: Does user
+                        have a profile
+                        on Youtube?
+                        c-userpost1=>condition: Has the
+                        user posted?
+
+                        s-username=>subroutine: Perform username
+                        searches on
+                        other platforms:>sub-username.html[blank]
+                        s-revimg=>subroutine: Perform reverse
+                        image searches:>sub-revimg.html[blank]
+
+                        para-acc-vid=>parallel: Examine videos
+                        para-pro=>parallel: Examine profile
+                        para-acc-avatar=>parallel: Examine avatar
+                        
+                        op-acc-verified=>operation: Examine if there is a verified badge
+                        op-acc-name=>operation: Examine name
+                        op-acc-art=>operation: Examine channel art
+                        op-acc-subscribers=>operation: Examine subscribers
+                        op-acc-links=>operation: Examine links
+
+                        op-vid-comment=>operation: Examine comments
+                        op-vid-hashtags=>operation: Examine hashtags
+                        op-vid-title=>operation: Examine video title
+                        op-vid-subtitle=>operation: Examine subtitle
+                        op-vid-thumbnails=>operation: Examine thumbnails
+                        op-vid-description=>operation: Examine description
+                        op-vid-views=>operation: Examine views
+                        op-vid-time=>operation: Examine upload time
+                        op-vid-likes/dislikes=>operation: Examine likes/dislikes
+                        op-vid-category=>operation: Examine category
+                        op-vid-location=>operation: Examine location
+                        op-vid-game=>operation: Examine game played
+
+
+                        st->c-userpro1(yes,right)
+                        c-userpro1(no)->e
                     `;
 
                     if (chart) {
@@ -106,3 +135,6 @@
         <div id="canvas"></div>
     </body>
 </html>
+
+
+                    

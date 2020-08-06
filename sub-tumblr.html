@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -16,19 +17,42 @@
 
                 (btn.onclick = function () {
                     var code = `
-                      st=>start: Domain Search Start
-                      e=>end:>https://webbreacher.github.io/flowchart.js/
-                      
-                      c-website=>condition: Is there a website running on the domain?
-                      s-shodan=>subroutine: Perform searches on Shodan:>sub-shodan.html[blank]
-                      s-whois=>subroutine: Perform Whois searches:>sub-whois.html[blank]
-                      s-dns=>subroutine: Perform DNS queries:>sub-dns.html[blank]
-                      s-domrep=>subroutine: Examine the reputation of the domain:>sub_domrep.html[blank]
-                      s-website=>subroutine: Examine website:>sub-website.html[blank]
-                      op-website=>operation:
-                      st(right)->s-whois(right)->s-dns(right)->s-shodan(right)->s-domrep
-                      s-domrep->c-website(yes)->s-website
-                      c-website(no)->e
+                        st=>start: Tumblr Start
+                        e=>end:>https://webbreacher.github.io/flowchart.js/
+
+                        c-userpro1=>condition: Does user
+                        have a profile
+                        on Tumblr?
+                        c-userpost1=>condition: Has the
+                        user posted?
+
+                        s-username=>subroutine: Perform username
+                        searches on
+                        other platforms:>sub-username.html[blank]
+                        s-revimg=>subroutine: Perform reverse
+                        image searches:>sub-revimg.html[blank]
+
+                        para-acc=>parallel: Examine account
+                        para-peer=>parallel: Examine peer interactions
+                        para-acc-avatar=>parallel: Examine avatar
+
+                        op-acc-bio=>operation: Examine bio
+                        op-acc-followers=>operation: Examine followers
+                        op-acc-following=>operation: Examine who they follow
+                        op-acc-username=>operation: Examine username
+                        op-acc-likes=>operation: Examine likes
+                        op-post-text=>operation: Exaxmine text
+                        op-post-archive=>operation: Examine archive
+                        op-post-photos/videos=>operation: Examine photos/videos
+                        op-post-tag=>operation: Examine tags
+                        op-peer-likes=>operation: Examine likes
+                        op-peer-comments=>operation: Examine comments
+                        op-peer-reblogs=>operation: Examine reblogs
+
+
+                        st->c-userpro1(yes,right)
+                        c-userpro1(no)->e
+
                     `;
 
                     if (chart) {
@@ -106,3 +130,4 @@
         <div id="canvas"></div>
     </body>
 </html>
+           

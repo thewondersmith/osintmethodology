@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -16,19 +17,40 @@
 
                 (btn.onclick = function () {
                     var code = `
-                      st=>start: Domain Search Start
-                      e=>end:>https://webbreacher.github.io/flowchart.js/
-                      
-                      c-website=>condition: Is there a website running on the domain?
-                      s-shodan=>subroutine: Perform searches on Shodan:>sub-shodan.html[blank]
-                      s-whois=>subroutine: Perform Whois searches:>sub-whois.html[blank]
-                      s-dns=>subroutine: Perform DNS queries:>sub-dns.html[blank]
-                      s-domrep=>subroutine: Examine the reputation of the domain:>sub_domrep.html[blank]
-                      s-website=>subroutine: Examine website:>sub-website.html[blank]
-                      op-website=>operation:
-                      st(right)->s-whois(right)->s-dns(right)->s-shodan(right)->s-domrep
-                      s-domrep->c-website(yes)->s-website
-                      c-website(no)->e
+                        st=>start: TikTok Start
+                        e=>end:>https://webbreacher.github.io/flowchart.js/
+
+                        c-userpro1=>condition: Does user
+                        have a profile
+                        on TikTok?
+                        c-userpost1=>condition: Has the
+                        user posted?
+
+                        s-username=>subroutine: Perform username
+                        searches on
+                        other platforms:>sub-username.html[blank]
+                        s-revimg=>subroutine: Perform reverse
+                        image searches:>sub-revimg.html[blank]
+
+                        para-acc-vid=>parallel: Examine videos
+                        ara-pro=>parallel: Examine profile
+                        para-acc-avatar=>parallel: Examine avatar
+
+                        op-pro-nick=>operation: Examine nickname
+                        op-pro-likes=>operation: Examine likes
+                        op-pro-followers=>operation: Examine followers
+                        op-pro-following=>operation: Examine who they follow
+                        op-pro-verified=>operation: Examine if they are verified 
+                        op-pro-id=>operation: Examine the unique Id
+                        op-pro-description=>operation: Examine description
+                        op-vid-comment=>operation: Examine comments
+                        op-vid-hashtags=>operation: Examine hashtags
+                        op-vid-likes=>operation:  Examine likes
+                        op-vid-music=>operation: Examine music
+                        op-vid-title=>operation: Examine video title
+
+                        st->c-userpro1(yes,right)
+                        c-userpro1(no)->e
                     `;
 
                     if (chart) {
@@ -106,3 +128,6 @@
         <div id="canvas"></div>
     </body>
 </html>
+
+
+                    
