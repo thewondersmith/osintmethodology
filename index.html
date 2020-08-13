@@ -1,63 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
 
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+<!-- Sidebar -->
+<div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+  <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
+  <a href="#" class="w3-bar-item w3-button">Link 1</a>
+  <a href="#" class="w3-bar-item w3-button">Link 2</a>
+  <a href="#" class="w3-bar-item w3-button">Link 3</a>
+</div>
 
-    <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
+<!-- Page Content -->
+<div class="w3-teal">
+  <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">☰</button>
+  <div class="w3-container">
+    <h1>My Page</h1>
+  </div>
+</div>
 
-    <title>OSINT Methodology</title>
+<img src="img_car.jpg" alt="Car" style="width:100%">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/19.4.1/i18next.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/locize/i18next-locize-backend/i18nextLocizeBackend.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-i18next/1.2.1/jquery-i18next.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next-browser-languagedetector/4.0.2/i18nextBrowserLanguageDetector.min.js"></script>
-  </head>
+<div class="w3-container">
+<p>This sidebar is hidden by default, (style="display:none")</p>
+<p>You must click on the "hamburger" icon (top left) to open it.</p>
+<p>The sidebar will hide a part of the page content.</p>
+</div>
 
-  <body>
-    <h1>What is this?</h1>
+<script>
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+}
 
-    The OSINT Curious Project is making a community-driven OSINT methodology.<br>
-    <a href="https://github.com/osintcurious/osintmethodology/blob/master/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/osintcurious/osintmethodology">Our project is licensed under the GPLv3.</a>
-    <br><br>
-    <h2>Development</h2>
-    There is an editor for your use. <a href='editor.html' target='_blank'>Use this page to prototype entries</a><br>
-
-    We also have a <a href='variable-dictionary.xlsx' target='_blank'>data dictionary</a> with all the object names and definitions. Please use this for your objects and add new ones to it as needed. Reuse existing objects before creating new ones please.
-
-    <h1>What pages do you have?</h1>
-    <h2>General</h2>
-    <ul>
-      <li><a href='subroutines/sub-username.html'>Username Searching</a></li>
-      <li><a href='subroutines/sub-revimg.html'>Reverse Image Searching</a></li>
-      <li><a href='subroutines/sub-searchengine.html'>Search Engine Searching</a></li>
-      <li><a href='subroutines/sub-website.html'>Web Site Investigations</a></li>
-    </ul>
-    <h2>Social Media</h2>
-    <ul>
-      <li><a href='subroutines/sub-instagram.html'>Instagram Searches</a></li>
-      <li><a href='subroutines/sub-reddit.html'>Reddit Searches</a></li>
-      <li><a href='subroutines/sub-tiktok.html'>TikTok Searches</a></li>
-      <li><a href='subroutines/sub-tumblr.html'>Tumblr Searches</a></li>
-      <li><a href='subroutines/sub-youtube.html'>Youtube Searches</a></li>
-    </ul>
-    <h2>Domain/IP</h2>
-    <ul>
-      <li><a href='subroutines/sub-domain.html'>Domain Investigations</a></li>
-      <li><a href='subroutines/sub-domainrep.html'>Domain Reputation Investigations</a></li>
-      <li><a href='subroutines/sub-dns.html'>DNS Searches</a></li>
-      <li><a href='subroutines/sub-shodan.html'>Shodan Searches</a></li>
-      <li><a href='subroutines/sub-whois.html'>Whois Searches</a></li>
-    </ul>
-    <footer>
-      If you have questions about this project, please reach to method @ osintcurio.us.<br>
-      <center><img src='images/osintcurious_logo.png' width='500' height='338'></center>
-    </footer>
-  </body>
-</html>
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+</script>
+     
+</body>
+</html> 
