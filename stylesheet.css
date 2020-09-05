@@ -91,7 +91,7 @@ footer {
   background-color: #999;
   .copyright {
     width: 50%;
-    float: left;
+    float: center;
     @media (max-width: 600px) {
       width: 100%;
     }
