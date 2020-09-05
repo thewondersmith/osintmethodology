@@ -1,102 +1,155 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&display=swap');
-*,
-*::before,
-*::after {
+/*
+/* Fixed sidenav, full height */
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+  border: none;
+  background: none;
+  width:100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+  color: #f1f1f1;
+}
+
+/* Main content */
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+  font-size: 20px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+/* Add an active class to the active dropdown button */
+.active {
+  background-color: green;
+  color: white;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+  display: none;
+  background-color: #262626;
+  padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+@import "compass/css3";
+
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+
+/* Colors */
+
+$dk-blue: #1E83AE;
+$blue: #3D5B94;
+$light-blue: #3DACDD;
+$green: #6dcd9a;
+$social-size: 1.2em;
+$social-width: 20%;
+
+* {
   margin: 0;
   padding: 0;
-  box-sizing: inherit;
-}
-html {
-  box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
-}
-.container {
-  width: 100%;
-  height: 100vh;
-  background: linear-gradient(-45deg, #ee7752, #e73c7e);
-  background-size: 400% 400%;
-  position: relative;
-}
-.nav-bar {
-  position: absolute;
-  background-color: #122;
-  top: 0;
-  left: -25rem;
-  height: 100vh;
-  width: 25rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: 0.5s ease-out;
-}
-.toggle {
-  left: 0;
-  box-shadow: 1px 0 15px 2px rgba(0, 0, 0, 0.4);
-
-}
-.toggle-menu {
-  background-color: rgba(0, 0, 0, 0.2);
-  position: fixed;
-  top: 2rem;
-  left: 2rem;
-  width: 4rem;
-  height: 3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  padding: 0.2rem 0.5rem;
-  border-radius: 0.5rem;
-}
-.line {
-  width: 100%;
-  height: 4px;
-  border-radius:5px;
-  background-color: #fff;
-  transition: 0.2s ease-out;
-}
-.toggle .line1 {
-  background-color: #e73c7e;
-  transform: scale(0.9) rotateZ(-45deg) translate(-6px, 4px);
-}
-.toggle .line2 {
-  display: none;
-}
-.toggle .line3 {
-  background-color: #e73c7e;
-  transform: scale(0.9) rotateZ(45deg) translate(-6px, -4px);
+  @include box-sizing(border-box);
 }
 
-.toggle .toggle-menu {
-  background-color: white;
-}
-.nav-list {
-  list-style: none;
-}
-.nav-list-item {
-  text-align: center;
-  padding: 1rem 0;
-}
-.nav-link {
-  color: #fff;
-  font-size: 2.2rem;
-  text-decoration: none;
-  position: relative;
-  padding-bottom: 0.4rem;
-}
-.nav-link::before {
-  position: absolute;
-  content: '';
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 1px;
+
+
+html, body {
+  font-family: Raleway, sans-serif;  
   background-color: #fff;
-  transform: scaleX(0);
-  transition: 0.4s ease-in-out;
-  transform-origin: left;
 }
-.nav-link:hover::before {
-  transform: scaleX(1);
+
+footer {
+  width: 100%;
+  display: inline-block;
+  margin: 2em 0;
+  height: 70px;
+  background-color: #999;
+  .copyright {
+    width: 50%;
+    float: left;
+    @media (max-width: 600px) {
+      width: 100%;
+    }
+    p {
+      padding-left: 10%;
+      color: white;
+      font-size: 0.7em;
+      line-height: 70px;
+      text-transform: capitalize;
+      letter-spacing: 1px;
+      @media (max-width: 600px) {
+        text-align: center;
+        padding: 0;
+      }
+    }
+  }
+  .social {
+      width: 50%;
+      float: right;
+    @media (max-width: 600px) {
+      width: 100%;
+    }
+     a {
+      float: left;
+      line-height: 70px;
+      text-decoration: none;
+      color: white;
+      text-align: center;
+      font-weight: bold; 
+      @include transition(all, 0.3s);
+       &:hover {
+         background-color: #222;
+         @include transition(all, .3s);
+       }
+    }
+  }
 }
-@media (max-width: )
+
+.linked {
+  background-color: $dk-blue;
+  font-size: $social-size;
+  width: $social-width;
+}
+
+.face {
+  background-color: $blue;
+  font-size: $social-size;
+  width: $social-width;
+}
+
+.tweet {
+  background-color: $light-blue;
+  font-size: $social-size;
+  width: $social-width;
+}
+
+.support {
+  background-color: $green;
+  font-size: 0.8em;
+  width: 40%;
+}

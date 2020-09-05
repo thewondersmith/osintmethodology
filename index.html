@@ -1,20 +1,162 @@
-<div class="container">
-      <nav class="nav-bar">
-        <div class="toggle-menu">
-          <div class="line line1"></div>
-          <div class="line line2"></div>
-          <div class="line line3"></div>
-        </div>
-        <ul class="nav-list">
-          <li class="nav-list-item"><a href="" class="nav-link">Home</a></li>
-          <li class="nav-list-item"><a href="" class="nav-link">About</a></li>
-          <li class="nav-list-item">
-            <a href="" class="nav-link">Projects</a>
-          </li>
-          <li class="nav-list-item"><a href="" class="nav-link">Clients</a></li>
-          <li class="nav-list-item">
-            <a href="" class="nav-link">Contact Me</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+/* Fixed sidenav, full height */
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #818181;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+  color: #f1f1f1;
+}
+
+/* Main content */
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+  font-size: 20px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+/* Add an active class to the active dropdown button */
+.active {
+  background-color: #aa8e76;
+  color: white;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+  display: none;
+  background-color: #262626;
+  padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+
+/* Some media queries for responsiveness */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+</head>
+<body>
+
+<div class="sidenav">
+      <a href="index.html">Home</a>
+  <button class="dropdown-btn">General 
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="subroutines/sub-username.html">Usernames</a>
+    <a href="subroutines/sub-revimg.html">Reverse Image Search</a>
+    <a href="subroutines/sub-searchengine.html">Search Engine Searching</a>
+    <a href="subroutines/sub-website.html">Website Investigation</a>
+  </div>
+    <button class="dropdown-btn">Social Media 
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="subroutines/sub-instagram.html">Instagram</a>
+    <a href="subroutines/sub-reddit.html">Reddit</a>
+    <a href="subroutines/sub-tiktok.html">Tik Tok</a>
+    <a href="subroutines/sub-tumblr.html">Tumblr</a>
+    <a href="subroutines/sub-youtube.html">YouTube</a>
+  </div>
+    <button class="dropdown-btn">Domain/IP 
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="subroutines/sub-domain.html">Domain Investigations</a>
+    <a href="subroutines/sub-domainrep.html">Domain Reputation</a>
+    <a href="subroutines/sub-dns.html">DNS Searches</a>
+    <a href="subroutines/sub-shodan.html">Shodan Searches</a>
+    <a href="subroutines/sub-whois.html">Whois Searches</a>
+  </div>
+  <a href="contact.html">Contact</a>
+  
+  <a href="#contact">Search</a>
+</div>
+
+<div class="main">
+  <h2>What is this?</h2>
+  <p>The OSINT Curious Project is making a community-driven OSINT methodology.<br>
+    <a href="https://github.com/osintcurious/osintmethodology/blob/master/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/osintcurious/osintmethodology">Our project is licensed under the GPLv3.</a>
+    <br><br>
+    <h2>Development</h2>
+    There is an editor for your use. <a href='editor.html' target='_blank'>Use this page to prototype entries</a><br>
+
+    We also have a <a href='variable-dictionary.xlsx' target='_blank'>data dictionary</a> with all the object names and definitions. Please use this for your objects and add new ones to it as needed. Reuse existing objects before creating new ones please.
+</p>
+  <p>If you have questions about this project, please reach to method @ osintcurio.us.</p>
+</div>
+
+<script>
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+  this.classList.toggle("active");
+  var dropdownContent = this.nextElementSibling;
+  if (dropdownContent.style.display === "block") {
+  dropdownContent.style.display = "none";
+  } else {
+  dropdownContent.style.display = "block";
+  }
+  });
+}
+</script>
+
+<--Footer-->
+<footer>
+  <div class="copyright">
+    <p>&copy 2020 - The OSINT Curious Project</p>
+  </div>
+  <div class="social">
+    <a href="#" class="support">Contact Us</a>
+    <a href="#" class="face">f</a>
+    <a href="#" class="tweet">t</a>
+    <a href="#" class="linked">in</a>
+  </div>
+</footer>
+
+
+
+</body>
+</html> 
