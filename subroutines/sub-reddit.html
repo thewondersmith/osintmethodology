@@ -1,4 +1,4 @@
-hmtl<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -79,6 +79,8 @@ body {
   .sidenav a {font-size: 18px;}
 }
 </style>  
+    </head>
+    <body>
 <div class="main2">
     <img src="osintmethodology/images/osintcurio_logo_RGB.png" style="float:right" width="190"/>
   <h2>Reddit Search</h2>
@@ -98,7 +100,6 @@ body {
                     var code = `
                       st=>start: Reddit Search Start
                       e=>end:>https://method.osintcurio.us/
-
                       c-userpro1=>condition: Does user
                       have a profile
                       on Reddit?
@@ -106,7 +107,6 @@ body {
                       user posted?
                       c-usercomm1=>condition: Has the
                       user commented?
-
                       s-search1=>subroutine: Perform search
                       engine searches:>/subroutines/sub-searchengine.html[blank]
                       s-username=>subroutine: Perform username
@@ -114,7 +114,6 @@ body {
                       other platforms:>/subroutines/sub-username.html[blank]
                       s-revimg=>subroutine: Perform reverse
                       image searches:>/subroutines/sub-revimg.html[blank]
-
                       para-posts=>parallel: Examine posts
                       op-comments=>operation: Examine comments
                       op-post-del=>operation: Examine deleted
@@ -131,7 +130,6 @@ body {
                       custom feeds
                       op-pro-mod=>operation: Examine moderator
                       of the communities
-
                       st->c-userpro1
                       c-userpro1(yes, right)->para-pro(path1, right)->s-username->para-pro-avatar
                       para-pro-avatar(path1, right)->s-revimg
@@ -217,8 +215,7 @@ body {
 
         </script>
     </div>
-    </head>
-    <body>
+
 
         <div style="display: none;"><button id="run" type="button"></button></div>
         <div id="canvas"></div>
