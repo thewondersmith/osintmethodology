@@ -107,12 +107,11 @@ zoom: 0.7;
                     var code = `
                       st=>start: Reddit Search Start
                       e=>end:>https://method.osintcurio.us/
-                      c-userpro1=>condition: Does user
-                      have a profile
-                      on Reddit?
-                      c-userpost1=>condition: Has the
+                      c-userpro1=>condition: User
+                      has Reddit profile?
+                      c-userpost1=>condition: Has 
                       user posted?
-                      c-usercomm1=>condition: Has the
+                      c-usercomm1=>condition: Has 
                       user commented?
                       s-search1=>subroutine: Perform search
                       engine searches:>/subroutines/sub-searchengine.html[blank]
@@ -135,8 +134,7 @@ zoom: 0.7;
                       op-pro-about=>operation: Examine about
                       op-pro-pubfeed=>operation: Examine public
                       custom feeds
-                      op-pro-mod=>operation: Examine moderator
-                      of the communities
+                      op-pro-mod=>operation: Examine community moderators
                       st->c-userpro1
                       c-userpro1(yes, right)->para-pro(path1, right)->s-username->para-pro-avatar
                       para-pro-avatar(path1, right)->s-revimg
@@ -195,11 +193,9 @@ zoom: 0.7;
                           'element-color': 'white',
                           'fill': '#a27684',
                           'font-weight' : 'normal'
-				'text-align': 'center',
                         },
                         'end':{
                           'font-color': 'white',
-				'text-align': 'center',
                           'element-color': 'white',
                           'fill': '#C0392B',
                           'font-weight' : 'bold'
